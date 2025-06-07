@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Nunito_Sans, Nunito, Plaster } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -10,6 +10,19 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+const nunitoSans = Nunito_Sans({
+  variable: "--font-nunito-sans",
+  subsets: ["latin"],
+});
+const nunito = Nunito({
+  variable: "--font-nunito",
+  subsets: ["latin"],
+}); 
+const plaster = Plaster({
+  weight: "400",
+  variable: "--font-plaster",
+  subsets: ["latin"],
+})
 
 export const metadata = {
   title: "Create Next App",
@@ -20,7 +33,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${nunitoSans.variable} ${nunito.variable} ${plaster.variable} antialiased`}
       >
         {children}
       </body>
