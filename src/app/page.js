@@ -248,7 +248,7 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section className="py-20 px-5 sm:px-20 bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl mx-5 sm:mx-20 my-20">
+      <section className="py-20 px-5 sm:px-10 lg:px-20 bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl mx-5 sm:mx-20 my-20">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl sm:text-5xl font-bold text-center mb-4 relative inline-block">
             Lets Connect
