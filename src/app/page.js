@@ -296,7 +296,7 @@ export default function Home() {
           </h2>
 
           <p className="text-lg text-gray-400 text-center max-w-2xl mx-auto mb-12 font-mono">
-            <span className="text-gray-600">// </span>
+            <span className="text-gray-600">{"// "}</span>
             Have a project in mind or want to discuss opportunities? I would
             love to hear from you!
           </p>
