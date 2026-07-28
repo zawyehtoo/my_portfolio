@@ -17,14 +17,8 @@ import {
   faGit,
   faGithub,
   faLinkedin,
-  faFacebook,
 } from "@fortawesome/free-brands-svg-icons";
-import {
-  faDatabase,
-  faEnvelope,
-  faArrowUpRightFromSquare,
-  faPhone,
-} from "@fortawesome/free-solid-svg-icons";
+import { faDatabase, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const NAME = "Zaw Ye Htoo";
 const TYPING_SPEED = 120;
@@ -60,12 +54,6 @@ const socials = [
     color: "text-blue-400 hover:text-blue-300",
   },
   {
-    platform: "Facebook",
-    icon: faFacebook,
-    url: "https://www.facebook.com/zaw.ye.htoo.788507",
-    color: "text-sky-400 hover:text-sky-300",
-  },
-  {
     platform: "Email",
     icon: faEnvelope,
     url: "mailto:zawyehtoo29@gmail.com",
@@ -97,35 +85,86 @@ export default function Home() {
 
   return (
     <div>
-      <div className="flex flex-col-reverse  sm:grid sm:grid-cols-3 sm:items-center p-20 ">
-        <div className="text-center sm:text-left col-span-2">
-          <h1 className="lg:text-7xl md:text-5xl text-3xl font-bold">
-            I am{" "}
-            <span className="name border-r-2 border-black pr-1 animate-blink">
-              {displayed}
-            </span>
-            ,
-          </h1>
-          <h2 className="lg:text-4xl md:text-2xl font-bold mt-4">
-            Passionate Web Developer
-          </h2>
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/60 border-b border-gray-800">
+        <div className="flex items-center justify-between px-5 sm:px-20 py-4">
+          <span className="text-xl font-bold">
+            Zaw<span className="name">.</span>
+          </span>
+          <div className="hidden sm:flex items-center gap-8 text-gray-300">
+            <a href="#what-i-do" className="hover:text-white transition-colors">
+              What I Do
+            </a>
+            <a href="#projects" className="hover:text-white transition-colors">
+              Projects
+            </a>
+            <a href="#skills" className="hover:text-white transition-colors">
+              Skills
+            </a>
+            <a
+              href="#contact"
+              className="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 transition-all"
+            >
+              Contact
+            </a>
+          </div>
         </div>
-        <div className="flex justify-center items-center mb-10">
-          <Image
-            src="/cartoon.jpg"
-            className="rounded-full"
-            alt="Cartoon"
-            width={300}
-            height={37}
-            priority
-          />
+      </nav>
+
+      <div className="relative flex flex-col items-center justify-center text-center min-h-screen px-5 pt-24 overflow-hidden">
+        <div className="pointer-events-none absolute -top-40 -left-40 w-96 h-96 bg-purple-600/30 rounded-full blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-40 -right-40 w-96 h-96 bg-pink-600/20 rounded-full blur-3xl" />
+
+        <span className="mb-6 px-4 py-1.5 rounded-full border border-gray-700 text-sm text-gray-300 bg-gray-900/60">
+          Available for new opportunities
+        </span>
+
+        <h1 className="lg:text-7xl md:text-5xl text-4xl font-bold">
+          I am{" "}
+          <span className="name border-r-2 border-black pr-1 animate-blink">
+            {displayed}
+          </span>
+        </h1>
+        <h2 className="lg:text-3xl md:text-2xl text-xl font-bold mt-4 text-gray-300">
+          Passionate Web Developer
+        </h2>
+        <p className="max-w-xl mt-6 text-gray-400">
+          I build clean, modern web experiences from front to back &mdash;
+          turning ideas into fast, reliable products.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 mt-10">
+          <a
+            href="#projects"
+            className="px-8 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium hover:from-purple-700 hover:to-pink-700 transition-all shadow-lg hover:shadow-purple-500/20"
+          >
+            View My Work
+          </a>
+          <a
+            href="#contact"
+            className="px-8 py-3 rounded-lg border border-gray-700 text-white font-medium hover:bg-gray-800 transition-all"
+          >
+            Get In Touch
+          </a>
+        </div>
+
+        <div className="flex items-center gap-6 mt-10">
+          {socials.map((social) => (
+            <a
+              key={social.platform}
+              href={social.url}
+              aria-label={social.platform}
+              className={`text-2xl transition-colors ${social.color}`}
+            >
+              <FontAwesomeIcon icon={social.icon} />
+            </a>
+          ))}
         </div>
       </div>
       <section className="h-60">
         <ParallaxText baseVelocity={-5}>Framer Motion</ParallaxText>
         <ParallaxText baseVelocity={5}>Scroll velocity</ParallaxText>
       </section>
-      <section>
+      <section id="what-i-do">
         <div className="xl:grid xl:grid-cols-6 sm:px-20 px-5">
           <h1 className="text-6xl font-bold col-span-2 mb-5">
             What I <span className="name">Do</span>
@@ -182,7 +221,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="flex flex-col px-5 sm:px-20 mb-4 my-8">
+      <section id="projects" className="flex flex-col px-5 sm:px-20 mb-4 my-8">
         <h1 className="lg:text-5xl md:text-4xl text-3xl font-bold mb-4 ">
           My projects
         </h1>
@@ -190,7 +229,7 @@ export default function Home() {
           <Parallax />
         </div>
       </section>
-      <section className="py-16 px-5 sm:px-20">
+      <section id="skills" className="py-16 px-5 sm:px-20">
         <h1 className="text-center text-5xl mb-16 font-bold relative inline-block mx-auto">
           Skills I have
           <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-pink-500 transform scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100"></span>
@@ -248,58 +287,152 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section className="py-20 px-5 sm:px-10 lg:px-20 bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl mx-5 sm:mx-20 my-20">
+      <section id="contact" className="py-20 px-5 sm:px-10 lg:px-20 my-20">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl sm:text-5xl font-bold text-center mb-4 relative inline-block">
-            Lets Connect
-            <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-pink-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></span>
+          <h2 className="text-4xl sm:text-5xl font-bold text-center mb-4 font-mono">
+            <span className="text-purple-400">&lt;</span>
+            LetsConnect
+            <span className="text-purple-400"> /&gt;</span>
           </h2>
 
-          <p className="text-lg text-gray-300 text-center max-w-2xl mx-auto mb-12">
-            Have a project in mind or want to discuss opportunities? I wouldd
+          <p className="text-lg text-gray-400 text-center max-w-2xl mx-auto mb-12 font-mono">
+            <span className="text-gray-600">// </span>
+            Have a project in mind or want to discuss opportunities? I would
             love to hear from you!
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {/* Contact Form */}
-            <div className="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700">
-              <h3 className="text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
-                Send me a message
-              </h3>
-
-              <form className="space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+            {/* Contact info as a code editor window */}
+            <div className="rounded-xl overflow-hidden border border-gray-700 bg-[#0d1117] shadow-2xl">
+              <div className="flex items-center gap-2 px-4 py-3 bg-[#161b22] border-b border-gray-700">
+                <span className="w-3 h-3 rounded-full bg-red-500" />
+                <span className="w-3 h-3 rounded-full bg-yellow-500" />
+                <span className="w-3 h-3 rounded-full bg-green-500" />
+                <span className="ml-3 text-xs text-gray-400 font-mono">
+                  contact.js
+                </span>
+              </div>
+              <div className="p-6 font-mono text-sm leading-7 overflow-x-auto">
                 <div>
-                  <label htmlFor="name" className="block text-gray-300 mb-2">
-                    Your Name
+                  <span className="text-purple-400">const</span>{" "}
+                  <span className="text-sky-300">contact</span> = {"{"}
+                </div>
+                <div className="pl-6">
+                  <span className="text-sky-300">name</span>:{" "}
+                  <span className="text-amber-300">&quot;Zaw Ye Htoo&quot;</span>,
+                </div>
+                <div className="pl-6">
+                  <span className="text-sky-300">role</span>:{" "}
+                  <span className="text-amber-300">
+                    &quot;Web Developer&quot;
+                  </span>
+                  ,
+                </div>
+                <div className="pl-6">
+                  <span className="text-sky-300">email</span>:{" "}
+                  <a
+                    href="mailto:zawyehtoo29@gmail.com"
+                    className="text-amber-300 hover:text-pink-400 transition-colors underline-offset-4 hover:underline"
+                  >
+                    &quot;zawyehtoo29@gmail.com&quot;
+                  </a>
+                  ,
+                </div>
+                <div className="pl-6">
+                  <span className="text-sky-300">phone</span>:{" "}
+                  <a
+                    href="tel:+660814085141"
+                    className="text-amber-300 hover:text-pink-400 transition-colors underline-offset-4 hover:underline"
+                  >
+                    &quot;+66 0814085141&quot;
+                  </a>
+                  ,
+                </div>
+                <div className="pl-6">
+                  <span className="text-sky-300">social</span>: {"{"}
+                </div>
+                {socials
+                  .filter((social) => social.platform !== "Email")
+                  .map((social) => (
+                    <div key={social.platform} className="pl-12">
+                      <span className="text-sky-300">
+                        {social.platform.toLowerCase()}
+                      </span>
+                      :{" "}
+                      <a
+                        href={social.url}
+                        className="text-amber-300 hover:text-pink-400 transition-colors underline-offset-4 hover:underline"
+                      >
+                        &quot;@zawyehtoo&quot;
+                      </a>
+                      ,
+                    </div>
+                  ))}
+                <div className="pl-6">{"}"},</div>
+                <div className="pl-6">
+                  <span className="text-sky-300">status</span>:{" "}
+                  <span className="text-amber-300">
+                    &quot;available_for_hire&quot;
+                  </span>
+                </div>
+                <div>{"}"};</div>
+              </div>
+            </div>
+
+            {/* Message form as a terminal window */}
+            <div className="rounded-xl overflow-hidden border border-gray-700 bg-[#0d1117] shadow-2xl flex flex-col">
+              <div className="flex items-center gap-2 px-4 py-3 bg-[#161b22] border-b border-gray-700">
+                <span className="w-3 h-3 rounded-full bg-red-500" />
+                <span className="w-3 h-3 rounded-full bg-yellow-500" />
+                <span className="w-3 h-3 rounded-full bg-green-500" />
+                <span className="ml-3 text-xs text-gray-400 font-mono">
+                  send-message.sh
+                </span>
+              </div>
+
+              <form className="p-6 font-mono text-sm space-y-5 flex-1 flex flex-col">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-green-400 mb-2"
+                  >
+                    <span className="text-gray-500">$</span> whoami
                   </label>
                   <input
                     type="text"
                     id="name"
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white"
-                    placeholder="John Doe"
+                    className="w-full bg-transparent border-b border-gray-700 focus:border-purple-500 outline-none py-2 text-white placeholder-gray-600 transition-colors"
+                    placeholder="your_name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-gray-300 mb-2">
-                    Email Address
+                  <label
+                    htmlFor="email"
+                    className="block text-green-400 mb-2"
+                  >
+                    <span className="text-gray-500">$</span> cat email.txt
                   </label>
                   <input
                     type="email"
                     id="email"
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white"
-                    placeholder="john@example.com"
+                    className="w-full bg-transparent border-b border-gray-700 focus:border-purple-500 outline-none py-2 text-white placeholder-gray-600 transition-colors"
+                    placeholder="you@example.com"
                   />
                 </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-gray-300 mb-2">
-                    Your Message
+                <div className="flex-1">
+                  <label
+                    htmlFor="message"
+                    className="block text-green-400 mb-2"
+                  >
+                    <span className="text-gray-500">$</span> echo &quot;
+                    <span className="text-gray-500">message</span>&quot;
                   </label>
                   <textarea
                     id="message"
                     rows="4"
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white"
+                    className="w-full bg-transparent border-b border-gray-700 focus:border-purple-500 outline-none py-2 text-white placeholder-gray-600 resize-none transition-colors"
                     placeholder="Hey Zaw, I'd love to work with you on..."
                   ></textarea>
                 </div>
@@ -308,65 +441,9 @@ export default function Home() {
                   type="submit"
                   className="w-full py-3 px-6 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-purple-500/20"
                 >
-                  Send Message
+                  ./send_message.sh
                 </button>
               </form>
-            </div>
-
-            {/* Social Links */}
-            <div className="flex flex-col justify-between">
-              <div>
-                <h3 className="text-2xl font-bold mb-6 text-white">
-                  Find me online
-                </h3>
-
-                <div className="space-y-4">
-                  {socials.map((social) => (
-                    <a
-                      key={social.platform}
-                      href={social.url}
-                      className={`flex items-center space-x-4 p-4 rounded-lg bg-gray-800 hover:bg-gray-700 transition-all duration-300 ${social.color}`}
-                    >
-                      <FontAwesomeIcon
-                        icon={social.icon}
-                        className="text-2xl"
-                      />
-                      <span className="text-lg font-medium">
-                        {social.platform}
-                      </span>
-                      <FontAwesomeIcon
-                        icon={faArrowUpRightFromSquare}
-                        className="ml-auto text-sm opacity-70"
-                      />
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-              {/* Direct Contact */}
-              <div className="mt-10">
-                <h3 className="text-2xl font-bold mb-6 text-white">
-                  Direct contact
-                </h3>
-
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-4 p-4 rounded-lg bg-gray-800 hover:bg-gray-700 transition-all duration-300 text-gray-300 hover:text-white">
-                    <FontAwesomeIcon
-                      icon={faPhone}
-                      className="text-2xl text-green-400"
-                    />
-                    <span className="text-lg">+66 0814085141</span>
-                  </div>
-
-                  <div className="flex items-center space-x-4 p-4 rounded-lg bg-gray-800 hover:bg-gray-700 transition-all duration-300 text-gray-300 hover:text-white">
-                    <FontAwesomeIcon
-                      icon={faEnvelope}
-                      className="text-2xl text-red-400"
-                    />
-                    <span className="text-lg">hello@zawehtoo.dev</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
