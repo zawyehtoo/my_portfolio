@@ -1,4 +1,6 @@
 import { Geist, Geist_Mono, Nunito_Sans, Nunito, Plaster } from "next/font/google";
+import Script from "next/script";
+import SmoothScroll from "./components/SmoothScroll.jsx";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -32,10 +34,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${nunitoSans.variable} ${nunito.variable} ${plaster.variable} antialiased`}
       >
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();`}
+        </Script>
+        <SmoothScroll />
         {children}
       </body>
     </html>
